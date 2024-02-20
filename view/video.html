@@ -13,11 +13,15 @@
         }
 
         #video-list {
-            max-width: 800px;
-            margin: 50px auto;
+            width: 97%;
+            margin: 50px 10px;
             background-color: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p, h1, h2, h3, h4{
+            margin: 0px;
+            padding: 0px;
         }
 
         h1 {
@@ -26,44 +30,78 @@
             margin-bottom: 20px;
         }
 
-        ul {
+        .video-container {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
-        li {
+        .video-list {
+            width: 300px;
             border-bottom: 1px solid #ccc;
             padding: 10px;
+            margin: 10px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
         }
 
         video {
-            width: 70%;
-            height: 300px;
+            width: 300px;
+            height: 200px;
         }
 
         .video-info {
-            width: 25%;
-            text-align: right;
+            display: none;
+            
+        }
+        .video-title{
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (max-width: 750px){
+            .video-container{
+                display: block;
+                width: 100%;
+            }
+            .video-list{
+                width: 100%;
+                flex-direction: row;
+            }
+            .video-info{
+                display: block;
+                width: 50%;
+            padding-left: 30px;
+            text-align: justify;
+            }
+            .video-title{
+                display: none;
+            }
+
         }
     </style>
 </head>
 <body>
     <div id="video-list">
-        <h1>Video List</h1>
-        <ul>
+        <h1>All available Video List</h1>
+        <ul class="video-container">
             <?php 
                 foreach($variable['pageObj'] as $data){
             ?>
 
-            <li>
+            <li class="video-list">
                 <video controls>
                     <source src="<?php echo $data['mp4']; ?>" type="video/mp4">
                     Your browser does not support the video element.
                 </video>
-                <div class="video-info"><?php echo $data['title']; ?></div>
+                <div class="video-info">
+                    <h4>Song: <?php echo $data['title']; ?></h4>
+                    <p>Artist: <?php echo $data['artist']; ?></p>
+                    <p>Band: <?php echo $data['band']; ?></p>
+                </div>
+                <h4 class="video-title"><?php echo $data['title']; ?></h4>
             </li>
             <?php 
                 }
