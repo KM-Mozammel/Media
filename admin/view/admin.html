@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#admin-panel {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#sidebar {
+    width: 20%;
+    float: left;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#content {
+    width: 80%;
+    float: right;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+#sidebar a:hover {
+    color: #ffd700;
+}
+
+@media (max-width: 768px) {
+    #admin-panel {
+        width: 100%;
+    }
+
+    #sidebar {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* Add product page design */
+
+#content form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#content form label {
+    margin-bottom: 8px;
+}
+
+#content form input,
+#content form textarea {
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+#content form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#content form button:hover {
+    background-color: #555;
+}
+
+/* Dashboard css */
+
+header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .dashboard-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            font-size: 12px;
+        }
+
+        .monitoring-box {
+            width: 20%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .audio-monitoring {
+            background-color: #e6f7ff;
+        }
+
+        .video-monitoring {
+            background-color: #ffebcc;
+        }
+
+        .post-monitoring {
+            background-color: #d9ead3;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="admin-panel">
+        <div id="header">
+            Admin Panel
+        </div>
+        <div id="sidebar">
+            <ul>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="index.php?section=audio">Add Audio</a></li>
+                <li><a href="index.php?section=video">Add Video</a></li>
+                <li><a href="index.php?section=blog">Add Post</a></li>
+                <li><a style="color: skyblue;" href="../index.php">MK Media</a></li>
+            </ul>
+        </div>
+        <div id="content" style="padding: 5px; background-color: rgba(135, 207, 235, 0.322);">
+            <?php include $action.'.html'; ?>
+        </div>
+    </div>
+</body>
+</html>

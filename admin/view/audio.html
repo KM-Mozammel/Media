@@ -1,0 +1,46 @@
+<div id="content">
+  <h3>Add Audio</h3>
+  <form action="index.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="section" value="audio">
+    <input type="hidden" name="action" value="add">
+    <label for="title">Audio Title</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="Artist">Artist Name</label>
+    <input type="text" id="Artist" name="artist" required />
+
+    <label for="Album">Album</label>
+    <input type="text" id="Album" name="album" required />
+
+    <label for="Release">Year of Release</label>
+    <input type="text" id="Release" name="release" required />
+
+    <label for="Band">Band</label>
+    <input type="text" id="Band" name="band" required />
+
+    <label for="genra">Genre</label>
+    <input type="text" id="genra" name="genra" required />
+
+    <label for="rating">Rating</label>
+    <input type="number" id="rating" name="rating" required />
+    
+    <label for="comment">Comments</label>
+    <textarea
+      id="comment"
+      name="comment"
+      rows="4"
+      required
+    ></textarea>
+
+    <label for="productImage">Audio file:</label>
+    <input
+      type="file"
+      id="productImage"
+      name="audio"
+      accept="mp3/*"
+      required
+    />
+
+    <button type="submit">Add Audio</button>
+  </form>
+</div>

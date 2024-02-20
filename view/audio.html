@@ -1,0 +1,28 @@
+<h3 align="center">Song List</h3>
+<p align="center">All the availabe audio song you will found here.</p>
+<table style="background-color: rgba(42, 7, 59, 0.363); color: rgb(0, 0, 0); text-align: center; width: 100%;">
+    <tr>
+        <th>Title</th>
+        <th>Source</th>
+        <th>Artist</th>
+    </tr>
+<?php
+
+foreach($variable['pageObj'] as $data){
+?>
+    <tr style="padding: 10px;">
+        <td class="audio-info" style="padding: 10px;"><?php echo $data['Title']; ?></td>
+        <td>
+            <audio 
+            controls
+            src="<?php echo $data['mp3']; ?>"
+            type="mp3/audio"></audio>
+        </td>
+        <td><?php echo $data['Artist']; ?></td>
+    </tr>
+
+<?php
+}
+?>
+</table>
+

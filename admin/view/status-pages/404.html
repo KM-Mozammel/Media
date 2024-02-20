@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav {
+        display: flex;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-list li {
+        margin-right: 15px;
+      }
+
+      .nav-list a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+      }
+
+      input {
+        padding: 8px;
+        margin-right: 5px;
+      }
+
+      .search-button {
+        padding: 8px;
+        background-color: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .menu-toggle{
+        display: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          background-color: #333;
+          width: 100%;
+        }
+
+        .nav-list {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .nav-list li {
+          margin: 10px 0;
+        }
+
+        .menu-toggle {
+          display: block;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <h1>404 not found page</h1>
+      <p>This is some example text in the main content area.</p>
+      <p>Feel free to replace this with your actual content.</p>
+    </div>
+  </body>
+</html>

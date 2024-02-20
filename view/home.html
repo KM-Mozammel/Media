@@ -1,0 +1,47 @@
+<div class="main-content">
+  <h3>Top 10 hits of this week!</h3>
+  <div>
+    <ul style="margin: auto 100px;">
+      <?php foreach($variable['audio'] as $audio){
+      ?>
+
+      <li>
+        <a href="#"><?php echo $audio['Title']; ?></a>
+        <audio src="<?php echo $audio['mp3'];?>" controls></audio>
+      </li>
+
+      <?php 
+      }
+      ?>
+
+    </ul><br>
+    <button>Show More</button>
+  </div><br>
+
+  <!-- Video Display -->
+
+  <h3>Top 3 Arrivals of New Music Video!</h3>
+  <ul style="margin: auto 50px;">
+    <?php foreach($variable['video'] as $video){
+    ?>
+    <li>
+      <video width="350" height="150" src="<?php echo $video['location']; ?>" controls></video>
+      Song Name: <?php echo $video['name']; ?> <br>
+      Artist: Mozammel Khandakar
+    </li>
+    <?php } ?>
+  </ul>
+
+  <!-- Post Section -->
+
+  <h3>Hot New Topic!</h3>
+  <ul style="margin: auto 50px;">
+    <?php foreach($variable['blog'] as $blog){ ?>
+      <li>
+        <img src="<?php echo $blog['image']; ?>" width="100" height="100" alt="">
+        <h4><?php echo $blog['title']; ?></h4>
+        <p><?php echo $blog['content']; ?> [..<a href="#">Continue Reading</a>..]</p>
+      </li>
+    <?php } ?>
+  </ul>
+</div>

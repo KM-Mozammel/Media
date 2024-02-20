@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #blog-list {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .post-meta {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div id="blog-list">
+        <h1>Blog Post List</h1>
+        <ul>
+            <?php foreach($variable['pageObj'] as $data){
+            
+            ?>
+            <li>
+                <h2><?php echo $data['title']; ?></h2>
+                <img style="width: 200px; height: 200px;" src="<?php echo $data['image']; ?>" alt="">
+                <p><?php echo $data['content']; ?></p>
+                <div class="post-meta">Posted on January 2, 2024 by Jane Doe</div>
+            </li>
+    <?php
+        }
+    ?>
+        </ul>
+    </div>
+</body>
+</html>
