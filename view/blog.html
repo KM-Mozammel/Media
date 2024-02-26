@@ -48,19 +48,29 @@
         .post-meta {
             color: #888;
         }
+
+        @media screen and (max-width: 600px){
+            .content{
+                display: none;
+            }
+            .blog-list{
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="blog-list">
         <h1>Blog Post List</h1>
-        <ul>
+        <ul class="blog-container">
             <?php foreach($variable['pageObj'] as $data){
             
             ?>
-            <li>
+            <li class="blog-list">
                 <h2><?php echo $data['title']; ?></h2>
                 <img style="width: 200px; height: 200px;" src="<?php echo $data['image']; ?>" alt="">
-                <p><?php echo $data['content']; ?></p>
+                <p class="content"><?php echo $data['content']; ?></p>
                 <div class="post-meta">Posted on January 2, 2024 by Jane Doe</div>
             </li>
     <?php
