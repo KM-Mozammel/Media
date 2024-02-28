@@ -1,0 +1,49 @@
+<div id="content">
+  <h2 style="text-align: center;">Update Your Video file</h2>
+  <form action="index.php" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" name="section" value="video">
+    <input type="hidden" name="action" value="add">
+    
+    <?php foreach($data as $values)
+    {
+    ?>
+    <label for="title">Video Title</label>
+    <input type="text" id="title" value="<?php echo $values['title']; ?>" name="title" required />
+    
+    <label for="Artist">Artist Name</label>
+    <input type="text" id="Artist" value="<?php echo $values['artist']; ?>" name="artist" required />
+    
+    <label for="Album">Album</label>
+    <input type="text" id="Album" value="<?php echo $values['album']; ?>" name="album" required />
+    
+    <label for="Release">Year of Release</label>
+    <input type="text" id="Release"  value="<?php echo $values['release']; ?>" name="release" required />
+    
+    <label for="Band">Band</label>
+    <input type="text" id="Band" name="band" value="<?php echo $values['band']; ?>" required />
+    
+    <label for="genra">Genre</label>
+    <input type="text" id="genra"  value="<?php echo $values['genre']; ?>" name="genra" required />
+
+    <label for="rating">Rating</label>
+    <input type="number" id="rating"  value="<?php echo $values['rating']; ?>" name="rating" required />
+    
+    <label for="comment">Comments</label>
+    <input id="comment" name="comment"  value="<?php echo $values['title']; ?>" rows="4" required />
+    
+    <label for="productImage">Video file:</label>
+    <input
+    type="file"
+    value="<?php echo $values['mp4']; ?>"
+    id="productImage"
+    name="video"
+    accept="mp4/*"
+    required
+    />
+    <?php 
+      }
+    ?>
+    <button type="submit">Add Video</button>
+  </form>
+</div>

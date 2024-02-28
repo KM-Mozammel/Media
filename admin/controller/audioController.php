@@ -2,6 +2,7 @@
 
 class AudioController extends Controller{ 
 
+    // Checking if the user is loged in
     public function runBeforeAction(){
         if(isset($_SESSION['logedin'])){
             return true;
@@ -11,15 +12,33 @@ class AudioController extends Controller{
             die();
         }
     }
+
+    // Show the add Audio Form
     public function audio($section){
         $Tempalte = new Template();
         $Tempalte->view($section);
     }
 
-    // Get the form data;
-    // put them into database;
+    // Showing data    
+    public function show(){
+        // Getting data from Model
+        include ROOT_PATH . 'model/Audio.php';
+        $showAudio = new Audio();
+        $showAudio->showaudio();
+        
+        $Tempalte = new Template();
+        $Tempalte->show("audio-pages/audio-list", $showAudio->data);
+    }
+    // update Data Form
+    public function update(){
+        include ROOT_PATH . 'model/Audio.php';
+        $showAudio = new Audio();
+        $showAudio->findById($_GET['id']);
 
+        $Tempalte = new Template();
+        $Tempalte->show("audio-pages/audio-update-form", $showAudio->data);
 
+    }
 }
 
 

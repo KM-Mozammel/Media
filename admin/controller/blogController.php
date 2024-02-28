@@ -14,9 +14,26 @@ class BlogController extends Controller{
         $Tempalte = new Template();
         $Tempalte->view($section);
     }
-    // Get the form data;
-    // put them into database;
-    // Get the form data;
-    // put them into database;
+    
+    // Showing data    
+    public function show(){
+        // Getting data from Model
+        include ROOT_PATH . 'model/Post.php';
+        $showPost = new Post();
+        $showPost->showpost();
+        
+        $Tempalte = new Template();
+        $Tempalte->show("blog-pages/blog-list", $showPost->data);
+    }
+    // update Data Form
+    public function update(){
+        include ROOT_PATH . 'model/post.php';
+        $showPost = new Post();
+        $showPost->findById($_GET['id']);
+
+        $Tempalte = new Template();
+        $Tempalte->show("blog-pages/blog-update-form", $showPost->data);
+
+    }
 
 }
