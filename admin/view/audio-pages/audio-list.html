@@ -1,0 +1,27 @@
+<div id="content">
+  <h3 style="text-align: center;">List of All Available Audio Track</h3><hr>
+
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Artist</th>
+      <th>MP3</th>
+      <th>Genre</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <?php foreach($data as $audio){
+    ?>
+    <tr>
+      <td><?php echo $audio['Title']; ?></td>
+      <td><?php echo $audio['Artist']; ?></td>
+      <td><?php echo $audio["mp3"]; ?></td>
+      <td><?php echo $audio['Genre']; ?></td>
+      <td><a href="index.php?section=audio&action=update&id=<?php echo $audio['id']; ?>">Update Info</a></td>
+      <td><a href="">Delete File</a></td>
+    </tr>
+  <?php
+  }
+  ?>
+  </table>
+</div>

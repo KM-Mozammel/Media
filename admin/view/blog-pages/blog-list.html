@@ -1,0 +1,29 @@
+<div id="content">
+  <h3 style="text-align: center;">List of All Available Posts</h3><hr>
+
+  <table border="1">
+    <tr>
+      <th>Tilte</th>
+      <th>Image</th>
+      <th>Content</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <?php foreach($data as $posts){
+    ?>
+    <tr>
+      <td><?php echo $posts['title']; ?></td>
+      <td><?php echo substr($posts['content'], 700); ?></td>
+      <td><?php echo $posts['image']; ?></td>
+      <td><?php echo $posts["author"]; ?></td>
+      <td><?php echo $posts['date']; ?></td>
+      <td><a href="index.php?section=blog&action=update&id=<?php echo $posts['id']; ?>">Update Info</a></td>
+      <td><a href="">Delete File</a></td>
+    </tr>
+  <?php
+  }
+  ?>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+
+        <div id="content">
+            <h3 align = "center">Update Post</h3>
+            <?php foreach($data as $posts){
+            ?>
+            <form action="index.php" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" name="section" value="blog">
+                <input type="hidden" name="action" value="add">
+
+                
+                <label for="title">Post Title:</label>
+                <input type="text" id="title" value="<?php echo $posts['title']; ?>" name="title" required>
+                
+                <label for="content">Post Content:</label>
+                <input style="height: 140px; overflow: scroll;" type="text" id="content" value="<?php echo $posts['content']; ?>" name="content" rows="20" required />
+                
+                <label for="author">Author:</label>
+                <input type="text" id="author" value="<?php echo $posts['author']; ?>" name="author" required>
+                
+                <label for="date">Post Date:</label>
+                <input type="date" id="date" value="<?php echo $posts['date']; ?>" name="date" required>
+                
+                <label for="categories">Categories</label>
+                <input type="text" id="categories" value="<?php echo $posts['categories']; ?>" name="categories" required>
+                
+                <label for="image">choose your image</label>
+                <input type="file" id="image" value="<?php echo $posts['image']; ?>" name="image" accept="image/*" required>
+                
+                <button type="submit">Add Post</button>
+            </form>
+            <?php 
+            } ?>
+        </div>

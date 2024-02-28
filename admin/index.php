@@ -1,52 +1,101 @@
 <?php
 session_start();
 
-    define('ROOT_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
-    require_once(ROOT_PATH.'src/Controller.php');
-    require_once(ROOT_PATH.'src/DatabaseConnection.php');
-    require_once(ROOT_PATH.'src/Template.php');
+define('ROOT_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+define('FILE_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+
+require_once(ROOT_PATH . 'src/Controller.php');
+require_once(ROOT_PATH . 'src/DatabaseConnection.php');
+require_once(ROOT_PATH . 'src/Template.php');
 
 //     Getting Database Connection;
-    DatabaseConnection::connect('localhost', "darwin_cms", "root", "");
+DatabaseConnection::connect('localhost', "darwin_cms", "root", "");
 
-    $section = $_GET['section'] ?? $_POST['section'] ?? 'default';
-    $action = $_GET['action'] ?? $_POST['action'] ?? 'default';
+$section = $_GET['section'] ?? $_POST['section'] ?? 'default';
+$action = $_GET['action'] ?? $_POST['action'] ?? 'default';
 
-    if($section == "audio"){
-        include ROOT_PATH. 'controller/audioController.php';
-        $audio = new AudioController();
-        $audio->runAction($section);
+// Routing
+if ($section == "audio") {
 
-        if($action == "add"){
-            include ROOT_PATH. 'model/Audio.php';
-            $addAudio = new addAudio();
-            $addAudio->addaudio();
-        }
+    if ($action == "show") {
+        // Get Data
+        include ROOT_PATH . 'controller/audioController.php';
+        $showAudio = new AudioController();
+        $showAudio->runAction($action);
+        die();
 
-    } else if($section == "video"){
-        include ROOT_PATH. 'controller/videoController.php';
-        $video = new VideoController();
-        $video->runAction($section);
+    } else if ($action == "add") {
+        // Data Insert
+        include ROOT_PATH . 'model/Audio.php';
+        $addAudio = new Audio();
+        $addAudio->addaudio();
 
-        if($action == "add"){
-            include ROOT_PATH. 'model/Video.php';
-            $addVideo = new addvideo();
-            $addVideo->addvideo();
-        }
+    } else if($action == "update"){
 
-    } else if($section == "blog"){
-        include ROOT_PATH. 'controller/blogController.php';
-        $blog = new BlogController();
-        $blog->runAction($section);
+        include ROOT_PATH . 'controller/audioController.php';
+        $updateAudio = new AudioController();
+        $updateAudio->runAction($action);
 
-        if($action == "add"){
-            include ROOT_PATH. 'model/Post.php';
-            $addPost = new addPost();
-            $addPost->addpost();
-        }
-
-    } else{
-        include ROOT_PATH. 'controller/dashboardController.php';
-        $dashboard = new DashboardController();
-        $dashboard->runAction($section);
+        die();
     }
+
+    include ROOT_PATH . 'controller/audioController.php';
+    $audio = new AudioController();
+    $audio->runAction($section);
+
+} else if ($section == "video") {
+    if ($action == "show") {
+        // Get Data
+        include ROOT_PATH . 'controller/videoController.php';
+        $showAudio = new VideoController();
+        $showAudio->runAction($action);
+        die();
+
+    }else if ($action == "add") {
+
+        include ROOT_PATH . 'model/Video.php';
+        $addVideo = new Video();
+        $addVideo->addvideo();
+
+    } else if($action == "update"){
+
+        include ROOT_PATH . 'controller/videoController.php';
+        $updateAudio = new VideoController();
+        $updateAudio->runAction($action);
+
+        die();
+    }
+
+    include ROOT_PATH . 'controller/videoController.php';
+    $video = new VideoController();
+    $video->runAction($section);
+
+} else if ($section == "blog") {
+    if ($action == "show") {
+        // Get Data
+        include ROOT_PATH . 'controller/blogController.php';
+        $showBlog = new BlogController();
+        $showBlog->runAction($action);
+        die();
+
+    }else if ($action == "add") {
+        include ROOT_PATH . 'model/Post.php';
+        $addPost = new Post();
+        $addPost->addpost();
+    }  else if($action == "update"){
+
+        include ROOT_PATH . 'controller/blogController.php';
+        $updateBlog = new BlogController();
+        $updateBlog->runAction($action);
+
+        die();
+    }
+    include ROOT_PATH . 'controller/blogController.php';
+    $blog = new BlogController();
+    $blog->runAction($section);
+
+} else {
+    include ROOT_PATH . 'controller/dashboardController.php';
+    $dashboard = new DashboardController();
+    $dashboard->runAction($section);
+}

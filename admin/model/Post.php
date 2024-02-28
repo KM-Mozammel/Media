@@ -1,7 +1,9 @@
 <?php
 
-class addPost
+class Post
 {
+    public $data;
+
     public function addpost()
     {
         $dbh = DatabaseConnection::getinstance();
@@ -24,5 +26,31 @@ class addPost
         $stmt = $dbc->prepare($sql);
         $stmt->execute();
         echo "<script>alert('Data Inserted Successfull.');</script>";
+    }
+    public function showpost(){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM blog";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
+    }
+    public function findById($id){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM blog WHERE id = $id";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
     }
 }

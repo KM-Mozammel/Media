@@ -8,9 +8,9 @@
 
       <div style="text-align: left; display: flex; align-items: center; flex-direction: column; background-color: rgba(5, 167, 78, 0.521); margin: 10px; padding: 5px; border-radius: 5px;">
         <h4>Song: <?php echo $audio['Title']; ?></h4>
+        <audio src="<?php echo $audio['mp3'];?>" controls></audio>
         <p>Artist: <?php echo $audio['Artist']; ?></p>
         <p>Genre: <?php echo $audio['Genre']; ?></p>
-        <audio src="<?php echo $audio['mp3'];?>" controls></audio>
       </div>
 
       <?php 

@@ -1,6 +1,7 @@
 <?php
-class addAudio
-{
+class Audio
+{   
+    public $data;
     public function addaudio()
     {
         $dbh = Databaseconnection::getInstance();
@@ -26,4 +27,32 @@ class addAudio
         $stmt->execute();
         echo "<script>alert('Data Inserted Successfull.');</script>";
     }
+
+    public function showaudio(){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM audio";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
+    }
+    public function findById($id){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM audio WHERE id = $id";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
+    }
+    
 }

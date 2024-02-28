@@ -1,6 +1,7 @@
 <?php
-class addVideo
+class Video
 {
+    public $data;
     public function addvideo()
     {
         $dbh = Databaseconnection::getInstance();
@@ -25,5 +26,31 @@ class addVideo
         $stmt = $dbc->prepare($sql);
         $stmt->execute();
         echo "<script>alert('Data Inserted Successfull.');</script>";
+    }
+    public function showvideo(){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM videos";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
+    }
+    public function findById($id){
+
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "SELECT * FROM videos WHERE id = $id";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        $PageData = $stmt->fetchAll();
+
+        $this->data = $PageData;
+
     }
 }

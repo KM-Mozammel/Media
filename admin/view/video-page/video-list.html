@@ -1,0 +1,27 @@
+<div id="content">
+  <h3 style="text-align: center;">List of All Available Video Track</h3><hr>
+
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Artist</th>
+      <th>MP4</th>
+      <th>Genre</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <?php foreach($data as $videos){
+    ?>
+    <tr>
+      <td><?php echo $videos['title']; ?></td>
+      <td><?php echo $videos['artist']; ?></td>
+      <td><?php echo $videos["mp4"]; ?></td>
+      <td><?php echo $videos['genre']; ?></td>
+      <td><a href="index.php?section=video&action=update&id=<?php echo $videos['id']; ?>">Update Info</a></td>
+      <td><a href="">Delete File</a></td>
+    </tr>
+  <?php
+  }
+  ?>
+  </table>
+</div>
