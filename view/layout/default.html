@@ -1,3 +1,9 @@
+  <?php
+  $file = fopen("visits.txt", "w");
+  $_SESSION['visitiors'] = $_SESSION['visitiors'] + 1;
+  $count = $_SESSION['visitiors'];
+  fwrite($file, $count);
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,11 +17,22 @@
         padding: 0;
         box-sizing: border-box;
       }
-
-      
       .search-box {
         display: flex;
         align-items: center;
+      }
+
+      #carousel-caption{
+        position: absolute;
+        top: 45%;
+        left: calc(50% - 10%);
+        color: #ffffff;
+        background-color: #1b08c9b0;
+        font-weight: bolder;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       }
 
       input {
@@ -241,9 +258,7 @@
         }
 
         audio {
-            width: 300px;
-            padding: 0px;
-            margin: 10px;
+            width: 250px;
         }
         
         .carousel-item img {
@@ -264,13 +279,22 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <a href="index.php?section=audio"><img src="resorces/images/audio.jpeg" class="d-block w-100" alt="..."></a>
+          <a href="index.php?section=audio">
+            <img src="resorces/images/audio.jpeg" class="d-block w-100" alt="...">
+            <h4 id = "carousel-caption" style="margin: 0px; padding: 0px; text-align: center;">Listen to Audio Music</h4>
+          </a>
         </div>
         <div class="carousel-item">
-          <a href="index.php?section=blog"><img src="resorces/images/blog.jpg" class="d-block w-100" alt="..."></a>
+          <a href="index.php?section=blog">
+            <img src="resorces/images/blog.jpg" class="d-block w-100" alt="...">
+            <h4 id = "carousel-caption" style="margin: 0px; padding: 0px; text-align: center;">Read some famouse writing</h4>
+          </a>
         </div>
         <div class="carousel-item">
-          <a href="index.php?section=video"><img src="resorces/images/video.jpg" class="d-block w-100" alt="..."></a>
+          <a href="index.php?section=video">
+            <img src="resorces/images/video.jpg" class="d-block w-100" alt="...">
+            <h4 id = "carousel-caption" style="margin: 0px; padding: 0px; text-align: center;">Video Songs, Documentry and More</h4>
+          </a>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
