@@ -1,17 +1,17 @@
-<h3 align="center">Song List</h3>
+<h3 align="center" style="margin: 10px 0px;">Song List</h3>
 <p align="center">All the availabe audio song is here.</p>
-<table style="background-color: rgba(42, 7, 59, 0.123); color: rgb(0, 0, 0); text-align: center; width: 100%; text-align: center;">
-    <tr style="padding: 10px 0px; border-bottom: 1px solid #333;">
-        <th>Song</th>
-        <th>Artist</th>
-        <th>Band</th>
-        <th>File</th>
+<table style="color: rgb(0, 0, 0); text-align: center; width: 100%; text-align: center;">
+    <tr>
+        <th style="padding: 10px 0px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Song</th>
+        <th style="padding: 10px 0px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Artist</th>
+        <th style="padding: 10px 0px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Band</th>
+        <th style="padding: 10px 0px; font-family: Verdana, Geneva, Tahoma, sans-serif;">File</th>
     </tr>
 <?php
 
 foreach($variable['pageObj'] as $data){
 ?>
-    <tr style="padding: 10px; text-align: center; border-bottom: 2px solid #fff;">
+    <tr style="padding: 10px; text-align: center; border-bottom: 2px solid #0000003d;">
         <td class="audio-info"><?php echo $data['Title']; ?></td>
         <td><?php echo $data['Artist']; ?></td>
         <td><?php echo $data['Band']; ?></td>

@@ -86,27 +86,26 @@
 <body>
     <div id="video-list">
         <h1>All available Video List</h1>
-        <ul class="video-container">
+        <div style="margin: auto 10px; display: flex; flex-wrap: wrap; justify-content: center;">
             <?php 
                 foreach($variable['pageObj'] as $data){
             ?>
 
-            <li class="video-list">
+            <div style="display: flex; justify-content: center; align-items: left; flex-direction: column; margin: 10px;">
                 <video controls>
                     <source src="<?php echo $data['mp4']; ?>" type="video/mp4">
                     Your browser does not support the video element.
                 </video>
-                <div class="video-info">
+                <div>
                     <h4>Song: <?php echo $data['title']; ?></h4>
                     <p>Artist: <?php echo $data['artist']; ?></p>
                     <p>Band: <?php echo $data['band']; ?></p>
                 </div>
-                <h4 class="video-title"><?php echo $data['title']; ?></h4>
-            </li>
+            </div>
             <?php 
                 }
             ?>
-        </ul>
+            </div>
     </div>
 </body>
 </html>
