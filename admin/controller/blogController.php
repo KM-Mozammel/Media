@@ -27,6 +27,13 @@ class BlogController extends Controller{
     }
     // update Data Form
     public function update(){
+        if(isset($_POST['id'])){
+            include ROOT_PATH . 'model/Post.php';
+            $updateAudio = new Post();
+            $updateAudio->updatePost($_POST['id']);
+            die();
+        }
+        
         include ROOT_PATH . 'model/post.php';
         $showPost = new Post();
         $showPost->findById($_GET['id']);
@@ -34,6 +41,13 @@ class BlogController extends Controller{
         $Tempalte = new Template();
         $Tempalte->show("blog-pages/blog-update-form", $showPost->data);
 
+    }
+    // Delete from database
+
+    public function delete($id){
+        include_once ROOT_PATH. 'model/Post.php';
+        $deleteAudio = new Post();
+        $deleteAudio->delete($id);
     }
 
 }

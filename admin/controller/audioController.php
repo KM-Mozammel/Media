@@ -13,13 +13,13 @@ class AudioController extends Controller{
         }
     }
 
-    // Show the add Audio Form
+    // Show the add Audio Form normallys
     public function audio($section){
         $Tempalte = new Template();
         $Tempalte->view($section);
     }
 
-    // Showing data    
+    // Showing list of all available data  
     public function show(){
         // Getting data from Model
         include ROOT_PATH . 'model/Audio.php';
@@ -31,6 +31,14 @@ class AudioController extends Controller{
     }
     // update Data Form
     public function update(){
+
+        if(isset($_POST['id'])){
+            include ROOT_PATH . 'model/Audio.php';
+            $updateAudio = new Audio();
+            $updateAudio->updateaudio($_POST['id']);
+            die();
+        }
+
         include ROOT_PATH . 'model/Audio.php';
         $showAudio = new Audio();
         $showAudio->findById($_GET['id']);
@@ -38,6 +46,13 @@ class AudioController extends Controller{
         $Tempalte = new Template();
         $Tempalte->show("audio-pages/audio-update-form", $showAudio->data);
 
+    }
+    // Delete from database
+
+    public function delete($id){
+        include_once ROOT_PATH. 'model/audio.php';
+        $deleteAudio = new Audio();
+        $deleteAudio->delete($id);
     }
 }
 

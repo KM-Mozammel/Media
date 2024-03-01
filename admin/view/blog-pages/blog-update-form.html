@@ -6,8 +6,8 @@
             <form action="index.php" method="post" enctype="multipart/form-data">
 
                 <input type="hidden" name="section" value="blog">
-                <input type="hidden" name="action" value="add">
-
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="<?php echo $posts['id']; ?>">
                 
                 <label for="title">Post Title:</label>
                 <input type="text" id="title" value="<?php echo $posts['title']; ?>" name="title" required>

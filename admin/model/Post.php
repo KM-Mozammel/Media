@@ -53,4 +53,39 @@ class Post
         $this->data = $PageData;
 
     }
+
+    public function updatePost($id)
+    {
+        $dbh = DatabaseConnection::getinstance();
+        $dbc = $dbh->getConnection();
+
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $author = $_POST['author'];
+        $date = $_POST['date'];
+        $categories = $_POST['categories'];
+
+        $directory = "../resorces/images/";
+        $target_file = $directory . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        $location = substr($target_file, 3);
+
+        $sql = "UPDATE `blog` SET `title`='$title',`content`='$content',`image`='$location',`author`='$author',`date`='$date',`categories`='$categories' WHERE `id` = '$id'";
+
+
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        echo "<script>alert('Data Updated Successfull.');</script>";
+        header("location: http://localhost/media/admin/index.php?section=blog&action=show");
+    }
+    public function delete($id){
+        $dbh = Databaseconnection::getInstance();
+        $dbc = $dbh->getConnection();
+
+        $sql = "DELETE FROM `blog` WHERE `id` = $id";
+        $stmt = $dbc->prepare($sql);
+        $stmt->execute();
+        header("location: http://localhost/media/admin/index.php?section=blog&action=show");
+
+    }
 }

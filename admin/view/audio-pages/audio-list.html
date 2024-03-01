@@ -18,7 +18,7 @@
       <td><?php echo $audio["mp3"]; ?></td>
       <td><?php echo $audio['Genre']; ?></td>
       <td><a href="index.php?section=audio&action=update&id=<?php echo $audio['id']; ?>">Update Info</a></td>
-      <td><a href="">Delete File</a></td>
+      <td><a href="index.php?section=audio&action=delete&id=<?php echo $audio['id']; ?>">Delete File</a></td>
     </tr>
   <?php
   }
