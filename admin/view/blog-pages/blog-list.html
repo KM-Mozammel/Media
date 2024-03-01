@@ -20,7 +20,7 @@
       <td><?php echo $posts["author"]; ?></td>
       <td><?php echo $posts['date']; ?></td>
       <td><a href="index.php?section=blog&action=update&id=<?php echo $posts['id']; ?>">Update Info</a></td>
-      <td><a href="">Delete File</a></td>
+      <td><a href="index.php?section=blog&action=delete&id=<?php echo $posts['id']; ?>">Delete File</a></td>
     </tr>
   <?php
   }

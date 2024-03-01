@@ -8,7 +8,7 @@ require_once(ROOT_PATH . 'src/Controller.php');
 require_once(ROOT_PATH . 'src/DatabaseConnection.php');
 require_once(ROOT_PATH . 'src/Template.php');
 
-//     Getting Database Connection;
+// Setting Database Connection;
 DatabaseConnection::connect('localhost', "darwin_cms", "root", "");
 
 $section = $_GET['section'] ?? $_POST['section'] ?? 'default';
@@ -37,6 +37,12 @@ if ($section == "audio") {
         $updateAudio->runAction($action);
 
         die();
+    } else if($action == "delete"){
+        echo "<script>alert('Do you really want to delete?');</script>";
+        include_once ROOT_PATH. 'controller/audioController.php';
+        $deleteAudio = new AudioController();
+        $deleteAudio->delete($_GET['id']);
+        die();
     }
 
     include ROOT_PATH . 'controller/audioController.php';
@@ -60,9 +66,15 @@ if ($section == "audio") {
     } else if($action == "update"){
 
         include ROOT_PATH . 'controller/videoController.php';
-        $updateAudio = new VideoController();
-        $updateAudio->runAction($action);
+        $updateVideo = new VideoController();
+        $updateVideo->runAction($action);
 
+        die();
+    } else if($action == "delete"){
+        echo "<script>alert('Do you really want to delete?');</script>";
+        include_once ROOT_PATH. 'controller/videoController.php';
+        $deleteVideo = new VideoController();
+        $deleteVideo->delete($_GET['id']);
         die();
     }
 
@@ -88,6 +100,12 @@ if ($section == "audio") {
         $updateBlog = new BlogController();
         $updateBlog->runAction($action);
 
+        die();
+    } else if($action == "delete"){
+        echo "<script>alert('Do you really want to delete?');</script>";
+        include_once ROOT_PATH. 'controller/blogController.php';
+        $deletePost = new BlogController();
+        $deletePost->delete($_GET['id']);
         die();
     }
     include ROOT_PATH . 'controller/blogController.php';

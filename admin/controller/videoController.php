@@ -26,6 +26,13 @@ class VideoController extends Controller{
     }
     // update Data Form
     public function update(){
+        if(isset($_POST['id'])){
+            include ROOT_PATH . 'model/Video.php';
+            $updateAudio = new Video();
+            $updateAudio->updateVideo($_POST['id']);
+            die();
+        }
+
         include ROOT_PATH . 'model/Video.php';
         $showVideo = new Video();
         $showVideo->findById($_GET['id']);
@@ -33,5 +40,12 @@ class VideoController extends Controller{
         $Tempalte = new Template();
         $Tempalte->show("video-page/video-update-form", $showVideo->data);
 
+    }
+    // Delete from database
+
+    public function delete($id){
+        include_once ROOT_PATH. 'model/Video.php';
+        $deleteAudio = new Video();
+        $deleteAudio->delete($id);
     }
 }
