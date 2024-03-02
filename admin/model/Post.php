@@ -76,7 +76,7 @@ class Post
         $stmt = $dbc->prepare($sql);
         $stmt->execute();
         echo "<script>alert('Data Updated Successfull.');</script>";
-        header("location: http://localhost/media/admin/index.php?section=blog&action=show");
+        header("location: index.php?section=blog&action=show");
     }
     public function delete($id){
         $dbh = Databaseconnection::getInstance();
@@ -85,7 +85,7 @@ class Post
         $sql = "DELETE FROM `blog` WHERE `id` = $id";
         $stmt = $dbc->prepare($sql);
         $stmt->execute();
-        header("location: http://localhost/media/admin/index.php?section=blog&action=show");
+        header("location: index.php?section=blog&action=show");
 
     }
 }
