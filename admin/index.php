@@ -107,7 +107,8 @@ if ($section == "audio") {
         $deletePost = new BlogController();
         $deletePost->delete($_GET['id']);
         die();
-    }
+    } 
+    
     include ROOT_PATH . 'controller/blogController.php';
     $blog = new BlogController();
     $blog->runAction($section);
